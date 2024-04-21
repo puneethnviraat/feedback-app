@@ -1,0 +1,123 @@
+body{
+  background-color: #1D1D39;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+.header{
+background-color: rgba(0, 0, 0, 0.4);
+color:#FD618C;
+padding: 10px 0;
+text-align: center;
+
+}
+.card{
+  background-color: aliceblue;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: inset;
+width: 75%;
+margin: 15px auto;
+position: relative;
+height: 50px;
+}
+.numDisplay{
+  background-color: #FD618C;
+  padding: 5px;
+  width: 20px;
+  text-align: center;
+  border-radius: 15px;
+  position: absolute;
+  top:-10px;
+  left: -10px;
+}
+.edit-Icons{
+  position: absolute;
+  top:0px;
+  right:5px;
+  display: flex;
+}
+.icon{
+  color: #FD618C;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 1px;
+}
+.reviewStatistics{
+  color: aliceblue;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+.feedbackForm{
+  background-color: aliceblue;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: inset;
+width: 75%;
+text-align: center;
+margin: 0 auto;
+display: block;
+}
+.feedbackForm > input{
+  display: block;
+  padding: 10px;
+   width: 97%;
+   height: 75px;
+   border: none;
+  }
+  .btn-primary{
+background-color: #FD618C;
+font-size: 14px;
+border: none;
+padding: 10px;
+font-weight: bold;
+margin-top: 5px;
+  }
+  button{
+    border: none;
+  }
+
+  /* radio button styles */
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    color: #1D1D39;
+  }
+
+  label:before {
+    content: "";
+    position: absolute;
+    right: -8px;
+    top: -3px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FD618C;
+    border-radius: 50%;
+  }
+
+  input[type="radio"]:checked + label:after {
+    content: "";
+    z-index: 20;
+    position: absolute;
+    right: -6px;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    background: #f593af95;
+    border-radius: 50%;
+    color: #1D1D39;
+  }
+  .formHeading{
+    color: azure;
+    margin: 10px auto;
+    text-align: center;
+  }
