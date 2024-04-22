@@ -5,7 +5,7 @@ body{
   margin: 0;
   padding: 0;
 }
-.header{
+.header, .footer{
 background-color: rgba(0, 0, 0, 0.4);
 color:#FD618C;
 padding: 10px 0;
@@ -120,4 +120,28 @@ margin-top: 5px;
     color: azure;
     margin: 10px auto;
     text-align: center;
+  }
+  .about-page{
+    background-color: azure;
+    padding: 10px;
+    width: 70%;
+    margin: 20px auto;
+  }
+  .footer{
+position: fixed;
+bottom: 0px;
+width: 100%;
+  }
+  .footer-social-icons{
+padding: 10px;
+vertical-align: bottom;
+  }
+  .link{
+    color: aliceblue;
+    margin: 5px 10px;
+    text-decoration: none;
+    font-size: large;
+  }
+  .link:hover{
+    color: #FD618C;
   }

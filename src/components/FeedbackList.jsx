@@ -1,7 +1,9 @@
-import React from 'react';
+import { createContext, useContext, useState } from 'react';
 import FeedbackItem from './FeedbackItem';
 import { motion, AnimatePresence } from 'framer-motion';
-const FeedbackList = ({ reviews, deleteTeview }) => {
+import FeedbackContaxt from '../utils/FeedbackContaxt';
+const FeedbackList = () => {
+  const { reviews } = useContext(FeedbackContaxt);
   if (!reviews.length) {
     return <p>No reviews</p>;
   }
@@ -16,11 +18,7 @@ const FeedbackList = ({ reviews, deleteTeview }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <FeedbackItem
-              key={review.id}
-              review={review}
-              deleteTeview={deleteTeview}
-            />
+            <FeedbackItem key={review.id} review={review} />
           </motion.div>
         ))}
       </AnimatePresence>

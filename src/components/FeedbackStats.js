@@ -1,6 +1,7 @@
-import React from 'react';
-
-const FeedbackStats = ({ reviews }) => {
+import React, { useContext } from 'react';
+import FeedbackContaxt from '../utils/FeedbackContaxt';
+const FeedbackStats = () => {
+  const { reviews } = useContext(FeedbackContaxt);
   const Reviews = reviews.length;
   const AvgRatings =
     reviews.reduce((acc, curr) => {
