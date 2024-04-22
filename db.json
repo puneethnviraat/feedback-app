@@ -1,0 +1,29 @@
+{
+  "reviewsData": [
+    {
+      "id": "1",
+      "rating": 6,
+      "message": "this the review one, Lorem epsum"
+    },
+    {
+      "id": "3",
+      "rating": 4,
+      "message": "this the review two, Lorem epsum"
+    },
+    {
+      "id": "7",
+      "rating": 8,
+      "message": "this the review sevet adfa a, Lorem epsum"
+    },
+    {
+      "id": "e625",
+      "message": "this is new test option..",
+      "rating": 5
+    },
+    {
+      "message": "this is a new item... updated",
+      "rating": 4,
+      "id": "fca7"
+    }
+  ]
+}

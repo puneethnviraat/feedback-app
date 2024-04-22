@@ -1,20 +1,40 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import reviewsData from './data';
-import { v4 as uuidv4 } from 'uuid';
+
 const FeedbackContaxt = createContext();
+
 export const FeedbackProvider = ({ children }) => {
   const [reviews, setReviews] = useState(reviewsData);
+  const [isLoding, setLoding] = useState(true);
 
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
     edit: false,
   });
 
-  //update feedback item
+  useEffect(() => {
+    fetchFeedback();
+  }, []);
 
-  const updateFeedback = (id, updItem) => {
+  //fetch reviews
+  const fetchFeedback = async () => {
+    const response = await fetch(`/reviewsData?_sort=id`);
+    const data = await response.json();
+    setReviews(data);
+    setLoding(false);
+  };
+  //update feedback item
+  const updateFeedback = async (id, updItem) => {
+    const response = await fetch(`/reviewsData/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(updItem),
+    });
+    const data = await response.json();
     setReviews(
-      reviews.map((item) => (item.id === id ? { ...item, ...updItem } : item))
+      reviews.map((item) => (item.id === id ? { ...item, ...data } : item))
     );
   };
 
@@ -27,14 +47,22 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   //add feedback
-  const addFeedback = (newFeedback) => {
-    newFeedback.id = uuidv4();
-    setReviews([newFeedback, ...reviews]);
+  const addFeedback = async (newFeedback) => {
+    const response = await fetch('/reviewsData', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(newFeedback),
+    });
+    const data = await response.json();
+    setReviews([data, ...reviews]);
   };
 
   //delete feedback
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete')) {
+      await fetch(`/reviewsData/${id}`, { method: 'DELETE' });
       setReviews(reviews.filter((item) => item.id !== id));
     }
   };
@@ -47,6 +75,7 @@ export const FeedbackProvider = ({ children }) => {
         editFeedback,
         feedbackEdit,
         updateFeedback,
+        isLoding,
       }}
     >
       {children}
